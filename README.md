@@ -28,9 +28,9 @@ This prevents them from being overwritten by package updates.
 
 ## Repository Structure
 . 
-├── dummy.service # systemd unit file 
-├── dummy.sh # script executed by the service 
-└── README.md # project documentation 
+├── dummy.service # systemd unit file<br /> 
+├── dummy.sh # script executed by the service<br /> 
+└── README.md # project documentation <br />
 
 ---
 
