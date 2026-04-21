@@ -27,10 +27,10 @@ This prevents them from being overwritten by package updates.
 ---
 
 ## Repository Structure
-.
-├── dummy.service # systemd unit file
-├── dummy.sh # script executed by the service
-└── README.md # project documentation
+. 
+├── dummy.service # systemd unit file 
+├── dummy.sh # script executed by the service 
+└── README.md # project documentation 
 
 ---
 
@@ -53,19 +53,18 @@ done
 - Simulates a real background daemon
 
 ### Service File Overview
-[Unit]
-Description — human-readable description
-After=multi-user.target — ensures the service starts after the system reaches multi-user mode
-[Service]
-ExecStart — path to the script
-Type=simple — service starts immediately
-Restart=always — automatically restarts if it stops
-Logging
-StandardOutput=journal — logs go to systemd journal
-StandardError=journal
-SyslogIdentifier=dummy — label used in logs
-[Install]
-WantedBy=multi-user.target — enables service to start at boot
+[Unit] 
+Description — human-readable description 
+After=multi-user.target — ensures the service starts after the system reaches multi-user mode 
+[Service] 
+ExecStart — path to the script 
+Type=simple — service starts immediately 
+Restart=always — automatically restarts if it stops 
+StandardOutput=journal — logs go to systemd journal 
+StandardError=journal 
+SyslogIdentifier=dummy — label used in logs 
+[Install] 
+WantedBy=multi-user.target — enables service to start at boot 
 
 ## How to Run
 
@@ -80,19 +79,19 @@ WantedBy=multi-user.target — enables service to start at boot
 
 ### Output example
 
-[ilgar@IlgArch 09_Dummy_Systemd_Service]$ cat /var/log/dummy-service.log 
-Dummy service is running...
-Dummy service is running...
-Dummy service is running...
-Dummy service is running...
-Dummy service is running...
-Dummy service is running...
-Dummy service is running...
-Dummy service is running...
-Dummy service is running...
-Dummy service is running...
-Dummy service is running...
-Dummy service is running...
-[ilgar@IlgArch 09_Dummy_Systemd_Service]$ journalctl --unit=dummy.service
-Apr 21 22:26:24 IlgArch systemd[1]: Started Dummy Script.
-[ilgar@IlgArch 09_Dummy_Systemd_Service]$ 
+[ilgar@IlgArch 09_Dummy_Systemd_Service]$ cat /var/log/dummy-service.log  
+Dummy service is running... 
+Dummy service is running... 
+Dummy service is running... 
+Dummy service is running... 
+Dummy service is running... 
+Dummy service is running... 
+Dummy service is running... 
+Dummy service is running... 
+Dummy service is running... 
+Dummy service is running... 
+Dummy service is running... 
+Dummy service is running... 
+[ilgar@IlgArch 09_Dummy_Systemd_Service]$ journalctl --unit=dummy.service 
+Apr 21 22:26:24 IlgArch systemd[1]: Started Dummy Script. 
+[ilgar@IlgArch 09_Dummy_Systemd_Service]$
