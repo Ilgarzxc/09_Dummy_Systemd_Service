@@ -1,0 +1,25 @@
+# This service runs my dummy script constantly after startup
+
+[Unit]
+Description=Dummy Script
+# Service has to start after system startup (no GUI required)
+After=multi-user.target
+
+[Service]
+ExecStartPre=/usr/bin/touch /var/log/dummy-service.log 
+# Better to store custom scripts for execution by systemd units in /usr/local/bin 
+ExecStart=/usr/local/bin/dummy.sh
+Type=simple
+Restart=always
+
+#user
+User=dummy
+Group=dummy
+
+#Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=dummy
+
+[Install]
+WantedBy=multi-user.target 
